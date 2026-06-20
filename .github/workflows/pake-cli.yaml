@@ -192,6 +192,10 @@ jobs:
             $args += "--hide-title-bar"
           }
 
+          # Stay-logged-in for portal apps: tray icon + hide window on close keeps the process (and session) alive
+          $args += "--show-system-tray"
+          $args += "--hide-on-close"
+
           Write-Host "Running: node dist/cli.js $($args -join ' ')"
           node dist/cli.js $args
 
